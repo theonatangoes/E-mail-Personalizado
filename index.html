@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-mail + Botões | Tela preta</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #000000;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      padding: 2rem;
+    }
+
+    /* --- E-MAIL PERSONALIZADO (ÚNICO) --- */
+    .email-top {
+      margin-bottom: 3.5rem;
+      text-align: center;
+    }
+
+    .email-single {
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: #ffffff;
+      background: rgba(30, 30, 40, 0.6);
+      backdrop-filter: blur(4px);
+      padding: 0.8rem 2.8rem;
+      border-radius: 80px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+      font-family: 'Courier New', monospace;
+      letter-spacing: 1px;
+      transition: 0.2s;
+      display: inline-block;
+    }
+
+    .email-single:hover {
+      border-color: rgba(255, 255, 255, 0.5);
+      background: rgba(50, 50, 60, 0.8);
+      transform: translateY(-3px);
+    }
+
+    /* --- BOTÕES (EXATAMENTE COMO PEDIDO) --- */
+    .button-panel {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      align-items: center;
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 60px;
+      padding: 1.2rem 2.8rem;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 15px 30px rgba(255, 255, 255, 0.08), 0 5px 10px rgba(0, 0, 0, 0.6);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      min-width: 260px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      transform: scale(1.05) translateY(-4px);
+      box-shadow: 0 25px 40px rgba(255, 255, 255, 0.15), 0 8px 15px rgba(0, 0, 0, 0.8);
+    }
+
+    .btn:active {
+      transform: scale(0.98) translateY(2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.9);
+    }
+
+    /* DESIGN (ROSA) */
+    .btn-design {
+      background: #D81B60;
+      background: linear-gradient(145deg, #ff69b4, #d42d7f);
+      border-bottom: 4px solid #b31b66;
+    }
+
+    /* TRAFEGO (AZUL) */
+    .btn-trafego {
+      background: #2563EB;
+      background: linear-gradient(145deg, #42a5f5, #1565c0);
+      border-bottom: 4px solid #0d47a1;
+    }
+
+    /* PERFORMACE (DEGRADÊ ROSA + AZUL) */
+    .btn-performance {
+      background: linear-gradient(135deg, #ff44aa 0%, #ff80bf 30%, #8bb9ff 70%, #1e88e5 100%);
+      background-size: 150% 150%;
+      border-bottom: 4px solid #9f4da0;
+      transition: background-position 0.4s ease, transform 0.2s ease, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn-performance:hover {
+      background-position: 100% 50%;
+    }
+
+    .btn-performance::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 20% 40%, rgba(255, 255, 255, 0.2), transparent 60%);
+      border-radius: 60px;
+      opacity: 0.6;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .btn span {
+      display: inline-block;
+      text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 2;
+    }
+
+    @media (max-width: 700px) {
+      .btn {
+        font-size: 1.8rem;
+        padding: 1rem 2rem;
+        min-width: 220px;
+      }
+
+      .email-single {
+        font-size: 1.8rem;
+        padding: 0.6rem 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .btn {
+        font-size: 1.5rem;
+        padding: 0.9rem 1.5rem;
+        min-width: 180px;
+      }
+
+      .email-single {
+        font-size: 1.4rem;
+        padding: 0.4rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- APENAS UM E-MAIL PERSONALIZADO (TÍTULO) -->
+  <div class="email-top">
+    <div class="email-single">✉️ E-MAIL PERSONALIZADOS</div>
+  </div>
+
+  <!-- BOTÕES (SEM ALERTS, APENAS LINKS) -->
+  <div class="button-panel">
+    <a class="btn btn-design" href="design.html"><span>FULL DESIGN</span></a>
+    <a class="btn btn-trafego" href="trafego.html"><span>FULL TRAFEGO</span></a>
+    <a class="btn btn-performance" href="performace.html"><span>FULL PERFORMACE</span></a>
+  </div>
+
+</body>
+
+</html>
